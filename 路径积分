@@ -1,0 +1,124 @@
+# 路径积分
+
+## 前言
+
+讲真，小课题给的那几个图片我真的没明白啥意思，但是我自己进行了一些search，我确信自己懂得路径积分最基本的东西。所以小课题让“推导”，我这里就按照我懂的方式讲述路径积分。
+
+## 传播子
+
+薛定谔绘景（S.P.）下，态矢量含时，力学量不含时，态矢量随时间的演化符合薛定谔方程。
+$$
+\begin{equation}
+i \hbar \frac{\partial }{\partial t} \left| \alpha, t \right\rangle = H \left| \alpha, t \right\rangle 
+\end{equation}
+$$
+其解可表示为：
+$$
+\begin{equation}
+\left| \alpha, t \right\rangle = U(t) \left| \alpha \right\rangle
+\end{equation}
+$$
+这里：
+$$
+\begin{equation}
+U(t) = e^{-iHt / \hbar}
+\end{equation}
+$$
+力学量A的本征值问题，
+$$
+\begin{equation}
+A \left| a' \right\rangle = a' \left| a' \right\rangle 
+\end{equation}
+$$
+态矢量用基矢展开，
+$$
+\begin{equation}
+\left| \alpha, t \right\rangle = \sum\limits_{a'} \left| a' \right\rangle \left\langle a' | \alpha, t \right\rangle 
+\end{equation}
+$$
+在薛定谔表象下，$H = \frac{p^2}{2m} + V$，考虑态矢量从$\left| \alpha , t_0 \right\rangle$，变化到$\left| \alpha , t \right\rangle$
+$$
+\begin{equation}
+\left| \alpha , t \right\rangle = e^{-i H (t - t_0) / \hbar}  \left| \alpha , t_0 \right\rangle
+\end{equation}
+$$
+将它展开，
+$$
+\begin{equation}
+\left| \alpha , t \right\rangle = \sum\limits_{a'} \left| a' \right\rangle \left\langle a' | \alpha, t_0 \right\rangle e^{-i E_{a'} (t - t_0) / \hbar}
+\end{equation}
+$$
+将$\left\langle a' | \alpha, t_0 \right\rangle$表示为位置表象，
+$$
+\begin{equation}
+\left\langle a' | \alpha, t_0 \right\rangle = \int d^3 x \left\langle a' | x' \right\rangle \left\langle x' | \alpha, t_0 \right\rangle 
+\end{equation}
+$$
+为了避免歧义，把$x'$改为$x''$
+$$
+\begin{equation}
+\left\langle x'' | \alpha, t \right\rangle = \int d^3 x' \sum\limits_{a'}  \left\langle x'' | a' \right\rangle \left\langle a' | x' \right\rangle e^{- i E_{a'} (t - t_0) / \hbar} \left\langle x' | \alpha, t_0 \right\rangle
+\end{equation}
+$$
+其中的这个玩意就是传播子，
+$$
+\begin{equation}
+K(x'', t; x', t_0) = \sum\limits_{a'}  \left\langle x'' | a' \right\rangle \left\langle a' | x' \right\rangle e^{- i E_{a'} (t - t_0) / \hbar}
+\end{equation}
+$$
+
+## 海森堡绘景中的传播子
+
+在海森堡绘景下，利用$\left| a' , t \right\rangle = U^\dagger \left| a' \right\rangle$
+$$
+\begin{equation}
+K = \left\langle x'' \right| U(t) U^\dagger (t_0 ) \left| x' \right\rangle = \left\langle x'', t | x', t_0 \right\rangle
+\end{equation}
+$$
+海森堡绘景下，传播子可写为初始时刻位置算符本征矢与终了时刻位置算符本征矢的内积。传播子的地位就相当于由初始时刻（A）到终了时刻（B）的表象变换。
+
+## 时间切片
+
+我们首先引入单位算符：
+$$
+\begin{equation}
+1 = \int d^3 x_1 \left| x_1, t_1 \right\rangle \left\langle x_1, t_1 \right|
+\end{equation}
+$$
+故，
+$$
+\begin{equation}
+\left\langle x,t | x_0, t_0 \right\rangle = \int d^3 x_1 \left\langle x,t | x_1, t_1 \right\rangle \left\langle x_1 , t_1 | x_0, t_0 \right\rangle
+\end{equation}
+$$
+相当于在t1于t2之间插入一个时间点
+
+假设我们可以往里面无限地插入时间点，密铺整段时间，则
+$$
+\begin{equation}
+\left\langle x,t | x_0, t_0 \right\rangle = \int d^3 x_N ... \int d^3 x_1 \left\langle x, t | x_N, t_N \right\rangle \left\langle  ... \right\rangle ... \left\langle x_1, t_1 | x_0 , t_0 \right\rangle
+\end{equation}
+$$
+从t1到t2到构成了一个互相连接的传播子路径，但这个路径中只有首、尾两点是固定的，中间N个节点可以有多种选择，并且需遍历整个空间。这样总的传播子（或变换幅）就相当于是首尾固定情况下所有“各种路径”的求和。
+$$
+\begin{equation}
+\left\langle x,t | x_0, t_0 \right\rangle \propto \sum\limits_{All Paths} \left\langle x, t | x_N, t_N \right\rangle \left\langle  ... \right\rangle ... \left\langle x_1, t_1 | x_0 , t_0 \right\rangle   
+\end{equation}
+$$
+量子力学中真正关键的是相位，现在每一个无穷小传播子都带着一个相位，所有这些相位要加起来才对应某条路径的相位，不同路径的相位还会发生“干涉”，正是这个缘由导致了不同于经典物理的（丰富的）量子行为。
+
+既然通过（和路径相关的）作用量取极值的方法可以建立经典力学，那么我们是否可类似地基于路径和作用量的概念建立量子力学呢？
+
+尽管如此量子力学和经典力学的结果还是有很大区别的，比如经典力学求出来的是一条确定的轨迹，而量子力学中的“对各种路径”求和，则表明每一条路径（而非只有某个特殊的路径）都会对最终的变换幅有贡献。我们期待h趋近于0时，量子力学的结果会无限趋近经典力学的结果。
+
+## 费曼的路径积分
+
+量子力学的路径积分表示是由费曼完成的，费曼研究生的时候在狄拉克的书里读到：传播子就相当于（correspons to）是：
+$$
+\begin{equation}
+\exp \left[ {\frac{i \int_{t_1}^{t_2} L_c(x, \dot x) dt}{\hbar}} \right]
+\end{equation}
+$$
+积分部分是作用量S，指数部分给定了传播子的相位。
+
+该公式能解释为什么h趋近于0时，量子力学会趋近于经典力学。因为经典力学对应的路径是$\delta S = 0$，在这个条件下，周围路径的相位都是$e^{\frac{i \delta S}{ \hbar}}$，相位相位相同，相长干涉，因此经典路径的贡献就会加强凸显出来。
