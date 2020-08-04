@@ -55,19 +55,19 @@
 - Snippets（上一个插件的Snippets远好于这个）
 - 代码检查（调用MATLAB自带的mlint检查器）
 
-![](C:\Users\QQ\AppData\Roaming\Typora\typora-user-images\image-20200804232232281.png)
+![](https://gitee.com/wei_hong_liang/My_Picture_Bed/raw/master/20200805000051.png)
 
 ## 编码问题
 
 当你打开一份以前写好的.m文件的时候，可能看到所有的中文注释都变成了乱码。
 
-![image-20200804232633903](C:\Users\QQ\AppData\Roaming\Typora\typora-user-images\image-20200804232633903.png)
+![image-20200804232633903](https://gitee.com/wei_hong_liang/My_Picture_Bed/raw/master/20200805000051-1.png)
 
 这是因为MATLAB默认的字符编码格式跟VSC不同。
 
 从我的VSC底栏能看到
 
-![image-20200804232733729](C:\Users\QQ\AppData\Roaming\Typora\typora-user-images\image-20200804232733729.png)
+![image-20200804232733729](https://gitee.com/wei_hong_liang/My_Picture_Bed/raw/master/20200805000051-2.png)
 
 我此时采用的是UTF-8编码。
 
@@ -77,15 +77,15 @@
 
 我的是GBK编码：
 
-![image-20200804233201708](C:\Users\QQ\AppData\Roaming\Typora\typora-user-images\image-20200804233201708.png)
+![image-20200804233201708](https://gitee.com/wei_hong_liang/My_Picture_Bed/raw/master/20200805000051-3.png)
 
 因此将VSC的编码方式改成
 
-![image-20200804233233490](C:\Users\QQ\AppData\Roaming\Typora\typora-user-images\image-20200804233233490.png)
+![image-20200804233233490](https://gitee.com/wei_hong_liang/My_Picture_Bed/raw/master/20200805000051-4.png)
 
 这时，
 
-![image-20200804233254314](C:\Users\QQ\AppData\Roaming\Typora\typora-user-images\image-20200804233254314.png)
+![image-20200804233254314](https://gitee.com/wei_hong_liang/My_Picture_Bed/raw/master/20200805000051-5.png)
 
 当然，VSC也支持“猜测”该文件的编码方式，但是这个功能并不是默认激活的，你可以在settings.json文件中修改这个选项（如果没有就自己创建选项）：
 
