@@ -28,9 +28,11 @@
 
 建议将when条件写成`editorLangId == 'matlab'`。如果不设置When条件的话就会默认任何时候按下快捷键都会执行这个指令。我个人将所有类似操作都绑定`Shift+Enter`，所以会有冲突问题（我不希望执行Python代码的键被覆盖掉）。当你设置我刚刚提到的这个when条件就会使得只有当前语言是matlab时才会将代码递交给MATLAB处理。
 
-值得一提的是，**即使在这个命令行里面输入画图指令也是能执行的**，它会调用MATLAB来画出图像。这可比Mathematica Kernel的待遇好一点。终端执行MMA指令是没法画图的（伤）
+值得一提的是，**即使在这个命令行里面输入画图指令也是能执行的**，它会调用MATLAB来画出图像。这可比Mathematica Kernel的待遇好一点。终端执行MMA指令是没法画图的（不过似乎有个包叫JavaGraphics能解决这个问题）。
 
 我写得比较简略，只是提供概述，建议亲自看插件文档。
+
+这里提一句，执行选中代码的功能可能有点问题，我遇到了，而且没有解决，以前有人提过issue：[延迟执行的问题](https://github.com/apommel/vscode-matlab-interactive-terminal/issues/12)。
 
 ## [MatlabSnippets](https://marketplace.visualstudio.com/items?itemName=slaier.matlab-complete)
 
